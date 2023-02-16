@@ -1,0 +1,73 @@
+<!-- Message d'alerte création de type de réseau -->
+
+<div *ngIf="success" class="alert alert-info">Ajout effectué avec succès</div>
+<div *ngIf="edit" class="alert alert-info">
+  Modification effectuée avec succès
+</div>
+<div>
+  <h3>modifier un type de réseau:</h3>
+</div>
+<form (ngSubmit)="save()" [formGroup]="form">
+  <div>
+    <label for="idTypeReseau">type de reseau:</label>
+    <input
+      list="typeReseaux"
+      id="idTypeReseau"
+      formControlName="idTypeReseau"
+      [(ngModel)]="typeReseau2.idTypeReseau"
+      [value]="typeReseau2.idTypeReseau"
+      readonly
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="libelle">Libelle du type de reseau:</label>
+    <input
+      id="libelle"
+      formControlName="libelle"
+      [value]="typeReseau2.libelle"
+    />
+  </div>
+  <a
+    routerLink="/typereseau"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >retour</a
+  >
+  <a
+    routerLink="/typereseau/add"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >nouveau</a
+  >
+  <div *ngIf="typeReseau2.idTypeReseau == null">
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
+      mettre à jour
+    </button>
+  </div>
+  <div *ngIf="typeReseau2.idTypeReseau != null">
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="!form.invalid"
+    >
+      mettre à jour
+    </button>
+  </div>
+
+  <span
+    *ngIf="
+      form.get('idTypeReseau')?.invalid &&
+      form.get('idTypeReseau')?.dirty &&
+      form.get('libelle')?.dirty
+    "
+    >Etes-vous certain de créer ce type réseau</span
+  >
+
+  <div *ngIf="modification" class="alert alert-info">{{ modification }}</div>
+</form>
+<!---->

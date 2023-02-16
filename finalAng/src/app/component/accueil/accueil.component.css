@@ -1,0 +1,50 @@
+* {
+  margin: 10;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #8ec5fc !important;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+}
+
+/* Modification des éléments et mise en place du design centré */
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+  width: auto;
+  min-height: 100vh;
+  background-color: #8ec5fc !important;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+}
+
+/* Traitement des textes de connexion, informations Utilateur && login, balise p*/
+.infoConnexion {
+  padding-left: 3px;
+  font-size: 15px;
+}
+.form-control {
+  border: none;
+  border-radius: 8px !important;
+}
+/* Bouton de connexion */
+
+.boutonLogin {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  opacity: 0.95;
+  font-size: 15px;
+  transition-duration: 0.5s;
+}
+
+.boutonLogin:focus,
+.boutonLogin:active,
+.boutonLogin:hover {
+  animation: fadeInAnimation ease;
+  background-color: #203864;
+  color: white;
+}

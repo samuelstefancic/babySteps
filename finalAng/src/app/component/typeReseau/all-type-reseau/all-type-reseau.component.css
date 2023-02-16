@@ -1,0 +1,44 @@
+* {
+  margin: 10;
+  padding: 2px;
+  font-family: "Roboto", sans-serif;
+}
+
+#rechercheReseau {
+  background-color: #203864;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  height: 50px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+input#idTypeReseaud {
+  margin-right: 10px;
+}
+.reinitialiser {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  opacity: 0.95;
+  font-size: 15px;
+  transition-duration: 0.5s;
+}
+
+.reinitialiser:focus,
+.reinitialiser:active,
+.reinitialiser:hover {
+  animation: fadeInAnimation ease;
+  background-color: #203864;
+  color: white;
+}
+
+.divTravail {
+  display: flex;
+  justify-content: flex-end;
+  width: auto;
+}

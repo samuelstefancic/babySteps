@@ -1,0 +1,12 @@
+#ide eclispe
+.classpath
+.project
+.settings/
+#maven
+target/
+#macOS
+.DS_Store
+#VSCode
+.vscode
+.idea
+lombok.jar

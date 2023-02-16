@@ -1,0 +1,112 @@
+<div>
+  <!-- Rechercher par type de réseau -->
+
+  <div id="rechercheReseau"><h3>Rechercher par type de réseau</h3></div>
+  <div class="composants">
+    <div>
+      <label for="idTypeReseau">Type de réseau :</label>
+      <input
+        list="typeReseaux"
+        id="idTypeReseau"
+        [(ngModel)]="typeReseau.idTypeReseau"
+      />
+      <datalist id="typeReseaux">
+        <option *ngFor="let type of obsTypeReseaux | async">
+          {{ type.idTypeReseau }}
+        </option>
+      </datalist>
+    </div>
+    <div>
+      <label for="libelle">Libelle du type de réseau :</label>
+      <input id="libelle" [(ngModel)]="typeReseau.libelle" />
+    </div>
+  </div>
+
+  <div class="divTravail">
+    <datalist id="typeReseaux">
+      <option *ngFor="let typeReseau of obsTypeReseaux | async">
+        {{ typeReseau.idTypeReseau }}
+      </option>
+    </datalist>
+    <button class="reinitialiser" (click)="effacer()">Réinitialiser</button>
+    <button class="rechercher" (click)="recherche()">Rechercher</button>
+  </div>
+
+  <!-- Liste des types de réseaux -->
+
+  <div id="rechercheReseau"><h3>Liste des types de réseaux</h3></div>
+  <div class="composants">
+    <div>
+      <label for="idTypeReseau">Type de réseau :</label>
+      <input
+        list="typeReseaux"
+        id="idTypeReseau"
+        [(ngModel)]="typeReseau.idTypeReseau"
+      />
+      <datalist id="typeReseaux">
+        <option *ngFor="let type of obsTypeReseaux | async">
+          {{ type.idTypeReseau }}
+        </option>
+      </datalist>
+      <!-- bouton effacer -->
+      <button class="rechercher" (click)="effacer()">Effacer</button>
+      <datalist id="typeReseaux">
+        <option *ngFor="let typeReseau of obsTypeReseaux | async">
+          {{ typeReseau.idTypeReseau }}
+        </option>
+      </datalist>
+    </div>
+    <!-- Libellé type réseau -->
+
+    <div class="form-group">
+      <label for="libelle">Libelle du type de reseau:</label>
+      <input id="libelle" [(ngModel)]="typeReseau.libelle" />
+    </div>
+  </div>
+
+  <!-- Boutons liste réseau -->
+  <div class="divTravail">
+    <button class="rechercher" routerLink="/typereseau" routerLinkActive="true">
+      Réinitialiser
+    </button>
+    <button class="reinitialiser" (click)="recherche()">Rechercher</button>
+  </div>
+</div>
+
+<div class="divTravail">
+  <datalist id="typeReseaux">
+    <option *ngFor="let typeReseau of obsTypeReseaux | async">
+      {{ typeReseau.idTypeReseau }}
+    </option>
+  </datalist>
+  <button routerLink="/typereseau" routerLinkActive="true">
+    Réinitialiser
+  </button>
+  <button class="rechercher" (click)="recherche()">Rechercher</button>
+</div>
+
+<label for="idTypeReseau">type de reseau:</label>
+<input
+  list="typeReseaux"
+  id="idTypeReseau"
+  [(ngModel)]="typeReseau.idTypeReseau"
+/>
+<datalist id="typeReseaux">
+  <option *ngFor="let type of obsTypeReseaux | async">
+    {{ type.idTypeReseau }}
+  </option>
+</datalist>
+
+<button (click)="effacer()">gomme</button>
+<datalist id="typeReseaux">
+  <option *ngFor="let typeReseau of obsTypeReseaux | async">
+    {{ typeReseau.idTypeReseau }}
+  </option>
+</datalist>
+
+<div class="form-group">
+  <label for="libelle">Libelle du type de reseau:</label>
+  <input id="libelle" [(ngModel)]="typeReseau.libelle" />
+</div>
+<button (click)="recherche()">Rechercher</button>
+<button routerLink="/typereseau" routerLinkActive="true">Réinitialiser</button>

@@ -1,0 +1,24 @@
+<ul class="pagination">
+  <li class="page-item">
+    <a (click)="firstPage()" class="page-link">first</a>
+  </li>
+
+  <li class="page-item">
+    <a (click)="previousPage()" class="page-link">previous</a>
+  </li>
+  >
+  <li>
+    <a
+      *ngFor="let pageNumber of pages"
+      routerLink="/typereseau/page/{{ pageNumber }}/{{ selectedDeviceObj }}"
+      routerLinkActive="active"
+      >{{ pageNumber }}</a
+    >
+  </li>
+  <li class="page-item">
+    <a (click)="nextPage()" class="page-link">next</a>
+  </li>
+  <li class="page-item">
+    <a (click)="lastPage()" class="page-link">lastPage</a>
+  </li>
+</ul>

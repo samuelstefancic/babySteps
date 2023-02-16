@@ -1,0 +1,67 @@
+<h1>Consultation des types de réseaux</h1>
+<app-consultation-typereseau></app-consultation-typereseau>
+<!-- Titre élément -->
+<div><h3 id="rechercheReseau">Intégralité des types de réseaux</h3></div>
+<div *ngIf="showMessage" class="alert alert-info">
+  La liste des types de réseaux a été rafraîchie.
+</div>
+<div>
+  <!-- <div class="form-group"></div>   Quid de cet élément ?  -->
+  <input id="idTypeReseaud" [(ngModel)]="findByLibelle" />
+  <button (click)="consultation()" class="btn btn-outline-danger">
+    consultation
+  </button>
+</div>
+<<<<<<< HEAD
+=======
+<select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)">
+  <option [ngValue]="i" *ngFor="let i of itemPerPage">{{ i }}</option>
+</select>
+
+>>>>>>> d771426a46ab10f20e5ae2b3ee9cc8f571e55c5d
+<ng-container>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Type de réseau</th>
+        <th>Libellé</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let type of typereseaux">
+        <td
+          routerLink="/typereseau/{{ type.idTypeReseau }}"
+          routerLinkActive="active"
+        >
+          {{ type.idTypeReseau }}
+        </td>
+        <td
+          routerLink="/typereseau/{{ type.idTypeReseau }}"
+          routerLinkActive="active"
+        >
+          {{ type.libelle }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="divTravail">
+    <button
+      (click)="delete()"
+      class="reinitialiser"
+      type="submit"
+      [disabled]="type.idTypeReseau == null"
+    >
+      Supprimer
+    </button>
+    <button (click)="ajouter()" class="reinitialiser">Ajouter</button>
+    <button
+      (click)="modification()"
+      class="reinitialiser"
+      type="submit"
+      [disabled]="type.idTypeReseau == null"
+    >
+      Éditer
+    </button>
+  </div>
+</ng-container>
+<app-pagination></app-pagination>

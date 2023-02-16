@@ -1,0 +1,58 @@
+<!-- Message d'alerte création de type de réseau -->
+<div><h3 id="rechercheReseau">Ajout d'un type de réseau</h3></div>
+
+<div>
+  <form (ngSubmit)="save()" [formGroup]="form">
+    <div>
+      <label for="id">Type de réseau :</label>
+      <input
+        type="text"
+        id="id"
+        formControlName="idTypeReseau"
+        [(ngModel)]="typeReseau.idTypeReseau"
+      />
+      <select list="typeReseaux" id="idz">
+        <option id="idz" *ngFor="let typeReseau of obsTypeReseaux | async">
+          {{ typeReseau.idTypeReseau }}
+        </option>
+      </select>
+    </div>
+
+    <datalist id="typeReseaux">
+      <option *ngFor="let typeReseau of obsTypeReseaux | async">
+        {{ typeReseau.idTypeReseau }}
+      </option>
+    </datalist>
+    <span
+      *ngIf="
+        form.get('idTypeReseau')?.invalid && form.get('idTypeReseau')?.dirty
+      "
+      >Ce type de réseau existe déjà et doit être unique</span
+    >
+    <div class="form-group">
+      <label for="libelle">Libellé du type de réseau :</label>
+      <input
+        id="libelle"
+        formControlName="libelle"
+        [(ngModel)]="typeReseau.libelle"
+      />
+    </div>
+    <!-- Boutons traités -->
+    <div class="divTravail">
+      <button type="submit" class="reinitialiser" [disabled]="form.invalid">
+        Valider
+      </button>
+
+      <a
+        routerLink="/typereseau"
+        routerLinkActive="active"
+        class="reinitialiser"
+        >Annuler</a
+      >
+      <a class="reinitialiser" (click)="effacer()">Réinitialiser</a>
+      <div *ngIf="ajouteSuccess" class="alert alert-info">
+        {{ ajouteSuccess }}
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,107 @@
+<div>
+  <h3>créer un type de réseau:</h3>
+</div>
+
+<div *ngIf="typeReseau2.idTypeReseau" class="alert alert-info">
+  Modifier un type de réseau
+</div>
+<div *ngIf="!typeReseau2.idTypeReseau" class="alert alert-info">
+  création un type de réseau
+</div>
+<form (ngSubmit)="save()" [formGroup]="form">
+  <div>
+    <label for="id">type de reseau:</label>
+    <input
+      list="typeReseaux"
+      id="id"
+      formControlName="idTypeReseau"
+      [(ngModel)]="gomme"
+    />
+  </div>
+
+  <div>
+    <input
+      type="hidden"
+      id="id2"
+      formControlName="idTypeReseau2"
+      [(ngModel)]="typeReseau2.idTypeReseau"
+    />
+  </div>
+
+  <ng-template
+    *ngIf="
+      form.get('idTypeReseau')?.value == form.get('idTypeReseau2')?.value;
+      else elseBlock
+    "
+  >
+  </ng-template>
+  <ng-template #elseBlock>
+    <span
+      *ngIf="
+        form.get('idTypeReseau')?.invalid && form.get('idTypeReseau')?.dirty
+      "
+      >ce type de réseau existe déjà et doit être unique</span
+    >
+  </ng-template>
+
+  <datalist id="typeReseaux">
+    <option *ngFor="let typeReseau of obsTypeReseaux | async">
+      {{ typeReseau.idTypeReseau }}
+    </option>
+  </datalist>
+
+  <div class="form-group">
+    <label for="libelle">Libelle du type de reseau:</label>
+    <input id="libelle" formControlName="libelle" />
+  </div>
+  <div class="form-group" *ngIf="typeReseau2.idTypeReseau == null">
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
+      valider
+    </button>
+  </div>
+  <div *ngIf="typeReseau2.idTypeReseau != null">
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="!form.invalid"
+    >
+      mettre à jour
+    </button>
+  </div>
+  <span
+    *ngIf="
+      form.get('idTypeReseau')?.invalid &&
+      form.get('idTypeReseau')?.dirty &&
+      form.get('libelle')?.dirty
+    "
+    >Etes-vous certain de créer ce type réseau</span
+  >
+
+  <a
+    routerLink="/typereseau"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    (click)="effacer()"
+    >gomme</a
+  >
+  <a
+    routerLink="/typereseau"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >annuler</a
+  >
+  <a
+    (click)="nouveau()"
+    routerLink="/typereseau/add"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >nouveau</a
+  >
+  <div *ngIf="ajouteSuccess" class="alert alert-info">{{ ajouteSuccess }}</div>
+
+  <div *ngIf="modification" class="alert alert-info">{{ modification }}</div>
+</form>
